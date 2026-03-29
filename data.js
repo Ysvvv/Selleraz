@@ -111,16 +111,16 @@ const SITE_DATA = {
     nfts: [
         {
             id: 1,
-            name: "Doge Gift",
-            image: "https://cdn3d.iconscout.com/3d/premium/thumb/doge-coin-4996238-4159656.png", // Şəklin URL-i
-            link: "https://t.me/nft_link", // NFT-yə gedən link
-            modelName: "Doge",
-            modelRarity: "15", // Faiz (%) olaraq
-            symbolName: "DOGE",
-            symbolRarity: "20",
-            backdropName: "Tünd Göy",
-            backdropRarity: "5",
-            price: "50 ₼"
+            name: "Telegram",
+            image: "https://iconscout.com/ai-image/ai-heart-shaped-diamond-3d-icon_13901459", // Şəklin URL-i
+            link: "https://t.me/mrktaze", // NFT-yə gedən link
+            modelName: "None",
+            modelRarity: "0", // Faiz (%) olaraq
+            symbolName: "None",
+            symbolRarity: "0",
+            backdropName: "None",
+            backdropRarity: "0",
+            price: "Satış Yoxdur"
         }
     ]
 };
