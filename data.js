@@ -109,57 +109,5 @@ const SITE_DATA = {
 
     // Əgər yuxarıdakı ID qutusu boşdursa (""), sayt əl ilə (manual) yazılmış bu siyahını göstərəcək:
     nfts: [
-        {
-            id: 1,
-            name: "Snoop Cigar",
-            image: "https://i.postimg.cc/RZ9xC06y/Sehrli-kristal-cubuq.png", // Şəklin URL-i
-            link: "https://t.me/nft/SnoopCigar-53127", // NFT-yə gedən link
-            modelName: "Jade Fade",
-            modelRarity: "3", // Faiz (%) olaraq
-            symbolName: "Aquamarine",
-            symbolRarity: "1.2",
-            backdropName: "Oxen of Fire",
-            backdropRarity: "0.7",
-            price: "28₼"
-        },
-        {
-            id: 2,
-            name: "Hypno Lollipop",
-            image: "https://i.postimg.cc/7ZYDM6HL/Parlaq-spiralli-səkər-lollipop.png", // Şəklin URL-i
-            link: "https://t.me/nft/HypnoLollipop-13689", // NFT-yə gedən link
-            modelName: "Green Goblin",
-            modelRarity: "1.3", // Faiz (%) olaraq
-            symbolName: "Kitsune",
-            symbolRarity: "0.5",
-            backdropName: "Amber",
-            backdropRarity: "1",
-            price: "17₼"
-        },
-        {
-            id: 3,
-            name: "Faith Amulet",
-            image: "https://i.postimg.cc/PxmqJ5zR/Yasil-ay-və-məscid.png", // Şəklin URL-i
-            link: "https://t.me/nft/FaithAmulet-22485", // NFT-yə gedən link
-            modelName: "Starry Eve",
-            modelRarity: "1.5", // Faiz (%) olaraq
-            symbolName: "Lightning",
-            symbolRarity: "0.4",
-            backdropName: "Onyx Black",
-            backdropRarity: "1.5",
-            price: "24₼"
-        },
-        {
-            id: 4,
-            name: "Hypno Lollipop",
-            image: "https://i.postimg.cc/qR0GzzH8/Parlaq-spiralli-lollipop.png", // Şəklin URL-i
-            link: "https://t.me/nft/HypnoLollipop-30083", // NFT-yə gedən link
-            modelName: "Umbrella Corp",
-            modelRarity: "1.3", // Faiz (%) olaraq
-            symbolName: "Moon Eagle",
-            symbolRarity: "0.5",
-            backdropName: "Pasific Green",
-            backdropRarity: "2",
-            price: "11₼"
-        }
     ]
 };
