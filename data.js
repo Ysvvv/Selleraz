@@ -105,7 +105,7 @@ const SITE_DATA = {
     // Əgər NFT-ləri avtomatik Google Cədvəldən (Excel) oxumağını istəyirsinizsə, aşağıya həmin Cədvəlin ID-sini yapışdırın:
     // Cədvəlin başlıq sütunları (A1, B1, C1..) mütləq bu adlarda olmalıdır:
     // name | image | link | modelName | modelRarity | symbolName | symbolRarity | backdropName | backdropRarity | price
-    nftGoogleSheetId: "1wFS4Tk0lefnI24mvcZgwGwRhRYrKwXO8GXNCeDPmxwI",
+    nftGoogleSheetId: "",
 
     // Əgər yuxarıdakı ID qutusu boşdursa (""), sayt əl ilə (manual) yazılmış bu siyahını göstərəcək:
     nfts: [
