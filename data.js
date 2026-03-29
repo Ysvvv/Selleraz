@@ -105,22 +105,35 @@ const SITE_DATA = {
     // Əgər NFT-ləri avtomatik Google Cədvəldən (Excel) oxumağını istəyirsinizsə, aşağıya həmin Cədvəlin ID-sini yapışdırın:
     // Cədvəlin başlıq sütunları (A1, B1, C1..) mütləq bu adlarda olmalıdır:
     // name | image | link | modelName | modelRarity | symbolName | symbolRarity | backdropName | backdropRarity | price
-    nftGoogleSheetId: "18nvBzC9XMmwxWmHwR_lnzCWQZL2xDi_2dJ3dcsIH1lU",
+    nftGoogleSheetId: "",
 
     // Əgər yuxarıdakı ID qutusu boşdursa (""), sayt əl ilə (manual) yazılmış bu siyahını göstərəcək:
     nfts: [
-        // {
-        //     id: 1,
-        //     name: "Telegram",
-        //     image: "https://bvconuycpdvgzbvbkijl.supabase.co/storage/v1/object/public/sizes/7e47be-setting/dynamic/400/premium.webp", // Şəklin URL-i
-        //     link: "https://t.me/mrktaze", // NFT-yə gedən link
-        //     modelName: "None",
-        //     modelRarity: "0", // Faiz (%) olaraq
-        //     symbolName: "None",
-        //     symbolRarity: "0",
-        //     backdropName: "None",
-        //     backdropRarity: "0",
-        //     price: "Satış Yoxdur"
-        // }
+        {
+            id: 1,
+            name: "Snoop Cigar",
+            image: "https://i.postimg.cc/RZ9xC06y/Sehrli-kristal-cubuq.png", // Şəklin URL-i
+            link: "https://t.me/nft/SnoopCigar-53127", // NFT-yə gedən link
+            modelName: "Jade Fade",
+            modelRarity: "3", // Faiz (%) olaraq
+            symbolName: "Aquamarine",
+            symbolRarity: "1.2",
+            backdropName: "Oxen of Fire",
+            backdropRarity: "0.7",
+            price: "28₼"
+        },
+        {
+            id: 2,
+            name: "Hypno Lollipop",
+            image: "https://i.postimg.cc/7ZYDM6HL/Parlaq-spiralli-səkər-lollipop.png", // Şəklin URL-i
+            link: "https://t.me/mrktaze", // NFT-yə gedən link
+            modelName: "Island Ice",
+            modelRarity: "0.9", // Faiz (%) olaraq
+            symbolName: "Flower Cross",
+            symbolRarity: "0.3",
+            backdropName: "Pistachio",
+            backdropRarity: "1.5",
+            price: "14 ₼"
+        }
     ]
 };
