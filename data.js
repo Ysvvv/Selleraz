@@ -151,7 +151,7 @@ const SITE_DATA = {
         {
             id: 4,
             name: "Hypno Lollipop",
-            image: "https://i.postimg.cc/7ZYDM6HL/Parlaq-spiralli-səkər-lollipop.png", // Şəklin URL-i
+            image: "https://i.postimg.cc/qR0GzzH8/Parlaq-spiralli-lollipop.png", // Şəklin URL-i
             link: "https://t.me/nft/HypnoLollipop-30083", // NFT-yə gedən link
             modelName: "Umbrella Corp",
             modelRarity: "1.3", // Faiz (%) olaraq
