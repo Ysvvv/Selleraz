@@ -143,7 +143,7 @@ const SITE_DATA = {
             modelName: "Starry Eve",
             modelRarity: "1.5", // Faiz (%) olaraq
             symbolName: "Lightning",
-            symbolRarity: "Unknown",
+            symbolRarity: "0.4",
             backdropName: "Onyx Black",
             backdropRarity: "1.5",
             price: "24₼"
