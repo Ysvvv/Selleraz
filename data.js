@@ -126,14 +126,14 @@ const SITE_DATA = {
             id: 2,
             name: "Hypno Lollipop",
             image: "https://i.postimg.cc/7ZYDM6HL/Parlaq-spiralli-səkər-lollipop.png", // Şəklin URL-i
-            link: "https://t.me/mrktaze", // NFT-yə gedən link
-            modelName: "Island Ice",
-            modelRarity: "0.9", // Faiz (%) olaraq
-            symbolName: "Flower Cross",
-            symbolRarity: "0.3",
-            backdropName: "Pistachio",
-            backdropRarity: "1.5",
-            price: "14₼"
+            link: "https://t.me/nft/HypnoLollipop-13689", // NFT-yə gedən link
+            modelName: "Green Goblin",
+            modelRarity: "1.3", // Faiz (%) olaraq
+            symbolName: "Kitsune",
+            symbolRarity: "0.5",
+            backdropName: "Amber",
+            backdropRarity: "1",
+            price: "17₼"
         },
         {
             id: 3,
@@ -147,6 +147,19 @@ const SITE_DATA = {
             backdropName: "Onyx Black",
             backdropRarity: "1.5",
             price: "24₼"
+        },
+        {
+            id: 4,
+            name: "Hypno Lollipop",
+            image: "https://i.postimg.cc/7ZYDM6HL/Parlaq-spiralli-səkər-lollipop.png", // Şəklin URL-i
+            link: "https://t.me/nft/HypnoLollipop-30083", // NFT-yə gedən link
+            modelName: "Umbrella Corp",
+            modelRarity: "1.3", // Faiz (%) olaraq
+            symbolName: "Moon Eagle",
+            symbolRarity: "0.5",
+            backdropName: "Pasific Green",
+            backdropRarity: "2",
+            price: "11₼"
         }
     ]
 };
