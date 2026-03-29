@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderNFTs(nftArray) {
         if (!nftArray || nftArray.length === 0) {
-            nftsGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">Hazırda aktiv hədiyyə və ya NFT yoxdur.</p>';
+            nftsGrid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; color: var(--text-muted);">Hal-hazırda aktiv NFT satışda yoxdur, amma yaxın gələcəkdə nadir və eksklüziv kolleksiyalar təqdim olunacaq. Siz ilk xəbərdar olanlardan olun və nadir rəqəmsal əsərləri əldə etmək fürsətini qaçırmayın.</p>';
             return;
         }
 
