@@ -112,7 +112,7 @@ const SITE_DATA = {
         {
             id: 1,
             name: "Telegram",
-            image: "https://iconscout.com/ai-image/ai-heart-shaped-diamond-3d-icon_13901459", // Şəklin URL-i
+            image: "https://bvconuycpdvgzbvbkijl.supabase.co/storage/v1/object/public/sizes/7e47be-setting/dynamic/400/premium.webp", // Şəklin URL-i
             link: "https://t.me/mrktaze", // NFT-yə gedən link
             modelName: "None",
             modelRarity: "0", // Faiz (%) olaraq
