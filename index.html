@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Xidmətləri</title>
+    <!-- Google Fonts: Inter üçün -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-effects">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+    </div>
+
+    <!-- Naviqasiya Menyu -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" onclick="switchTab('tab-home', this)" class="nav-logo">Satıcı<span>.Az</span></a>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-btn active" onclick="switchTab('tab-home', this)">Əsas</a></li>
+                <li><a href="#" class="nav-btn" onclick="switchTab('tab-premium', this)">Telegram Premium</a></li>
+                <li><a href="#" class="nav-btn" onclick="switchTab('tab-stars', this)">Telegram Stars</a></li>
+                <li><a href="#" class="nav-btn" onclick="switchTab('tab-nfts', this)">NFTs</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- TABS CONTAINER -->
+    <div id="tabs-container">
+
+        <!-- 1. ƏSAS SƏHİFƏ (SADƏCƏ MƏLUMAT) -->
+        <div id="tab-home" class="tab-content active-tab">
+            <!-- Başlıq / Hero Section -->
+            <header class="hero">
+                <div class="container text-center">
+                    <h1 id="hero-title" class="title">...</h1>
+                    <p id="hero-slogan" class="slogan">...</p>
+                </div>
+            </header>
+
+            <main class="container">
+                <section class="section" style="padding-top: 20px;">
+                    <div class="grid-3" id="info-grid">
+                        <!-- Məlumat Kartları Bura script.js vasitəsilə yüklənəcək -->
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- 2. PREMIUM SƏHİFƏSİ (MƏHSULLAR) -->
+        <div id="tab-premium" class="tab-content" style="display: none;">
+            <main class="container">
+                <section class="section" style="padding-top: 40px;">
+                    <h2 class="section-title">
+                        Telegram Premium
+                    </h2>
+                    <div id="premium-grid" class="grid-3"></div>
+                </section>
+            </main>
+        </div>
+
+        <!-- 3. STARS SƏHİFƏSİ (MƏHSULLAR) -->
+        <div id="tab-stars" class="tab-content" style="display: none;">
+            <main class="container">
+                <section class="section" style="padding-top: 40px;">
+                    <h2 class="section-title">
+                        Telegram Stars
+                    </h2>
+                    <div id="stars-grid" class="grid-4"></div>
+                </section>
+            </main>
+        </div>
+
+        <!-- 4. NFTS SƏHİFƏSİ (MƏHSULLAR) -->
+        <div id="tab-nfts" class="tab-content" style="display: none;">
+            <main class="container">
+                <section class="section" style="padding-top: 40px;">
+                    <h2 class="section-title">
+                        Telegram NFTs
+                    </h2>
+                    <div id="nfts-grid" class="grid-nfts"></div>
+                </section>
+            </main>
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer" style="padding: 40px 0;">
+        <div class="container text-center">
+            <div class="footer-nav">
+                <!-- <span class="copyright-text">© 2026 Bütün hüquqlar qorunur.</span> -->
+                <!-- <span class="separator"></span> -->
+                <a id="footer-seller" href="#" class="footer-link">Satıcı</a>
+                <!-- <span class="separator"></span> -->
+                <a id="footer-channel" href="#" class="footer-link">Haqqında</a>
+                <!-- <span class="separator"></span> -->
+                <a id="footer-sponsor" href="#" class="footer-link">Sponsor</a>
+                <span class="copyright-text">© 2026 Bütün hüquqlar qorunur</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Konfiqurasiya Və Skriptlər -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
