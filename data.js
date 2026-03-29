@@ -133,7 +133,20 @@ const SITE_DATA = {
             symbolRarity: "0.3",
             backdropName: "Pistachio",
             backdropRarity: "1.5",
-            price: "14 ₼"
+            price: "14₼"
+        },
+        {
+            id: 3,
+            name: "Faith Amulet",
+            image: "https://i.postimg.cc/PxmqJ5zR/Yasil-ay-və-məscid.png", // Şəklin URL-i
+            link: "https://t.me/nft/FaithAmulet-22485", // NFT-yə gedən link
+            modelName: "Starry Eve",
+            modelRarity: "1.5", // Faiz (%) olaraq
+            symbolName: "Lightning",
+            symbolRarity: "Unknown",
+            backdropName: "Onyx Black",
+            backdropRarity: "1.5",
+            price: "24₼"
         }
     ]
 };
