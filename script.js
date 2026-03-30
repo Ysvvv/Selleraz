@@ -173,7 +173,224 @@ document.addEventListener("DOMContentLoaded", () => {
         renderNFTs(SITE_DATA.nfts);
     }
 
+    // 6. GIVEAWAY SİSTEMİ
+    renderGiveaways();
+
 });
+
+// ==========================================
+// GIVEAWAY RENDER VƏ COUNTDOWN FUNKSİYALARI
+// ==========================================
+
+function renderGiveaways() {
+    const container = document.getElementById('giveaway-container');
+    if (!container || !SITE_DATA.giveaways) return;
+
+    const activeGiveaways = SITE_DATA.giveaways.filter(g => g.active && !g.winner);
+    if (activeGiveaways.length === 0) {
+        container.innerHTML = '';
+        return;
+    }
+
+    let html = '';
+    activeGiveaways.forEach(giveaway => {
+        const now = new Date().getTime();
+        const endTime = new Date(giveaway.endDate).getTime();
+        const isEnded = now >= endTime;
+        const totalSlots = giveaway.totalSlots || 10;
+        const filledSlots = giveaway.filledSlots || 0;
+        const isSoldOut = filledSlots >= totalSlots;
+        const slotsRemaining = totalSlots - filledSlots;
+        const slotPercent = Math.round((filledSlots / totalSlots) * 100);
+
+        // Şərtlər HTML
+        let conditionsHtml = '';
+        if (giveaway.conditions && giveaway.conditions.length > 0) {
+            conditionsHtml = `
+                <div class="giveaway-conditions">
+                    <div class="giveaway-conditions-title"></div>
+                    <ul class="giveaway-conditions-list">
+                        ${giveaway.conditions.map((c, i) => `
+                            <li>
+                                <span class="condition-icon">✓</span>
+                                <span>${c}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+
+        // Status badge
+        let statusBadge;
+        if (isSoldOut) {
+            statusBadge = `<div class="giveaway-ended-badge">Dolub</div>`;
+        } else if (isEnded) {
+            statusBadge = `<div class="giveaway-ended-badge">Yoxdur</div>`;
+        } else {
+            statusBadge = `<div class="giveaway-live-badge"><span class="giveaway-live-dot"></span>Canlı</div>`;
+        }
+
+        // Düymə
+        let btnHtml;
+        if (isSoldOut) {
+            btnHtml = ``;
+        } else if (isEnded) {
+            btnHtml = `<button class="giveaway-participate-btn ended" disabled>Çekiliş Başa Çatıb</button>`;
+        } else {
+            btnHtml = `<a href="${giveaway.participateLink}" target="_blank" class="giveaway-participate-btn">${giveaway.price || '1 ₼'}</a>`;
+        }
+
+        // Slot progress bar rəngi
+        const progressColor = slotPercent >= 80 ? '#ff5252' : slotPercent >= 50 ? '#ffa726' : 'var(--accent-blue)';
+
+
+
+        html += `
+            <div class="giveaway-card" id="giveaway-${giveaway.id}">
+                <div class="giveaway-inner">
+                    <!-- Sol tərəf — NFT -->
+                    <div class="giveaway-nft-side">
+                        <img src="${giveaway.nft.image}" alt="${giveaway.nft.name}" class="giveaway-nft-image" onerror="this.style.background='linear-gradient(135deg, rgba(0,136,204,0.2), rgba(163,125,252,0.2))'; this.style.display='flex';">
+                        <div class="giveaway-nft-name">${giveaway.nft.name}</div>
+                        <div class="giveaway-nft-details">
+                            <div class="giveaway-nft-detail-row">
+                                <span class="giveaway-nft-detail-label">Model</span>
+                                <span class="giveaway-nft-detail-value">${giveaway.nft.modelName} <span class="rarity">${giveaway.nft.modelRarity}</span></span>
+                            </div>
+                            <div class="giveaway-nft-detail-row">
+                                <span class="giveaway-nft-detail-label">Symbol</span>
+                                <span class="giveaway-nft-detail-value">${giveaway.nft.symbolName} <span class="rarity">${giveaway.nft.symbolRarity}</span></span>
+                            </div>
+                            <div class="giveaway-nft-detail-row">
+                                <span class="giveaway-nft-detail-label">Backdrop</span>
+                                <span class="giveaway-nft-detail-value">${giveaway.nft.backdropName} <span class="rarity">${giveaway.nft.backdropRarity}</span></span>
+                            </div>
+                        </div>
+                        <a href="${giveaway.nft.link}" class="giveaway-nft-link-btn">
+                            <span style="margin-right: 8px;"></span> Link
+                        </a>
+                    </div>
+
+                    <!-- Sağ tərəf — Məlumat -->
+                    <div class="giveaway-info-side">
+                        <div class="giveaway-header">
+                            <div class="giveaway-title">${giveaway.title}</div>
+                            ${statusBadge}
+                        </div>
+
+                        <p class="giveaway-desc">${giveaway.description}</p>
+
+
+
+                        <!-- Slot Progress -->
+                        <div class="giveaway-slots-section">
+                            <div class="giveaway-slots-header">
+                                <span class="giveaway-slots-label">SLOTLAR</span>
+                                <span class="giveaway-slots-count"><strong>${filledSlots}</strong> / ${totalSlots} dolu</span>
+                            </div>
+                            <div class="giveaway-slots-bar">
+                                <div class="giveaway-slots-fill" style="width: ${slotPercent}%; background: ${progressColor};"></div>
+                            </div>
+                        </div>
+
+                        <!-- Geri Sayım -->
+                        <div class="giveaway-countdown-section">
+                            <div class="giveaway-countdown-label">Qalan vaxt</div>
+                            <div class="giveaway-countdown" id="countdown-${giveaway.id}">
+                                <div class="countdown-box">
+                                    <span class="countdown-value" data-unit="days">00</span>
+                                    <span class="countdown-unit">Gün</span>
+                                </div>
+                                <div class="countdown-box">
+                                    <span class="countdown-value" data-unit="hours">00</span>
+                                    <span class="countdown-unit">Saat</span>
+                                </div>
+                                <div class="countdown-box">
+                                    <span class="countdown-value" data-unit="minutes">00</span>
+                                    <span class="countdown-unit">Dəqiqə</span>
+                                </div>
+                                <div class="countdown-box">
+                                    <span class="countdown-value" data-unit="seconds">00</span>
+                                    <span class="countdown-unit">Saniyə</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        ${conditionsHtml}
+
+
+
+                        <div class="giveaway-winners">
+                            Sadəcə <strong>${giveaway.winnersCount}</strong> nəfər qazanacaq
+                        </div>
+
+                        ${btnHtml}
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+
+    // Countdown taymerləri başlat
+    activeGiveaways.forEach(giveaway => {
+        startCountdown(giveaway.id, giveaway.endDate);
+    });
+}
+
+function startCountdown(giveawayId, endDateStr) {
+    const countdownEl = document.getElementById(`countdown-${giveawayId}`);
+    if (!countdownEl) return;
+
+    const endTime = new Date(endDateStr).getTime();
+
+    function update() {
+        const now = new Date().getTime();
+        const diff = endTime - now;
+
+        if (diff <= 0) {
+            // Vaxt bitdi
+            const values = countdownEl.querySelectorAll('.countdown-value');
+            values.forEach(v => v.textContent = '00');
+
+            // Badge-i dəyiş
+            const card = document.getElementById(`giveaway-${giveawayId}`);
+            if (card) {
+                const liveBadge = card.querySelector('.giveaway-live-badge');
+                if (liveBadge) {
+                    liveBadge.outerHTML = '<div class="giveaway-ended-badge">Bitib</div>';
+                }
+
+                const btn = card.querySelector('.giveaway-participate-btn');
+                if (btn && !btn.classList.contains('ended')) {
+                    btn.outerHTML = '<button class="giveaway-participate-btn ended" disabled>Çekiliş Başa Çatıb</button>';
+                }
+            }
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        const daysEl = countdownEl.querySelector('[data-unit="days"]');
+        const hoursEl = countdownEl.querySelector('[data-unit="hours"]');
+        const minutesEl = countdownEl.querySelector('[data-unit="minutes"]');
+        const secondsEl = countdownEl.querySelector('[data-unit="seconds"]');
+
+        if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+        if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+        if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+
+        requestAnimationFrame(() => setTimeout(update, 1000));
+    }
+
+    update();
+}
 
 // TABLAR ÜÇÜN FUNKSİYA
 function switchTab(tabId, btnElement) {
@@ -206,3 +423,5 @@ function switchTab(tabId, btnElement) {
         btnElement.classList.add('active');
     }
 }
+
+
