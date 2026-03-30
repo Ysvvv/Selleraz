@@ -249,27 +249,31 @@ function renderGiveaways() {
         html += `
             <div class="giveaway-card" id="giveaway-${giveaway.id}">
                 <div class="giveaway-inner">
-                    <!-- Sol tərəf — NFT -->
-                    <div class="giveaway-nft-side">
-                        <img src="${giveaway.nft.image}" alt="${giveaway.nft.name}" class="giveaway-nft-image" onerror="this.style.background='linear-gradient(135deg, rgba(0,136,204,0.2), rgba(163,125,252,0.2))'; this.style.display='flex';">
-                        <div class="giveaway-nft-name">${giveaway.nft.name}</div>
-                        <div class="giveaway-nft-details">
-                            <div class="giveaway-nft-detail-row">
-                                <span class="giveaway-nft-detail-label">Model</span>
-                                <span class="giveaway-nft-detail-value">${giveaway.nft.modelName} <span class="rarity">${giveaway.nft.modelRarity}</span></span>
+                    <!-- Sol tərəf — NFT və ya Böyük Şəkil -->
+                    <div class="giveaway-nft-side${giveaway.imageOnly ? ' giveaway-image-only-side' : ''}">
+                        ${giveaway.imageOnly ? `
+                            <img src="${giveaway.largeImage}" alt="${giveaway.title}" class="giveaway-large-image" onerror="this.style.background='rgba(255,255,255,0.05)';">
+                        ` : `
+                            <img src="${giveaway.nft.image}" alt="${giveaway.nft.name}" class="giveaway-nft-image" onerror="this.style.background='linear-gradient(135deg, rgba(0,136,204,0.2), rgba(163,125,252,0.2))'; this.style.display='flex';">
+                            <div class="giveaway-nft-name">${giveaway.nft.name}</div>
+                            <div class="giveaway-nft-details">
+                                <div class="giveaway-nft-detail-row">
+                                    <span class="giveaway-nft-detail-label">Model</span>
+                                    <span class="giveaway-nft-detail-value">${giveaway.nft.modelName} <span class="rarity">${giveaway.nft.modelRarity}</span></span>
+                                </div>
+                                <div class="giveaway-nft-detail-row">
+                                    <span class="giveaway-nft-detail-label">Symbol</span>
+                                    <span class="giveaway-nft-detail-value">${giveaway.nft.symbolName} <span class="rarity">${giveaway.nft.symbolRarity}</span></span>
+                                </div>
+                                <div class="giveaway-nft-detail-row">
+                                    <span class="giveaway-nft-detail-label">Backdrop</span>
+                                    <span class="giveaway-nft-detail-value">${giveaway.nft.backdropName} <span class="rarity">${giveaway.nft.backdropRarity}</span></span>
+                                </div>
                             </div>
-                            <div class="giveaway-nft-detail-row">
-                                <span class="giveaway-nft-detail-label">Symbol</span>
-                                <span class="giveaway-nft-detail-value">${giveaway.nft.symbolName} <span class="rarity">${giveaway.nft.symbolRarity}</span></span>
-                            </div>
-                            <div class="giveaway-nft-detail-row">
-                                <span class="giveaway-nft-detail-label">Backdrop</span>
-                                <span class="giveaway-nft-detail-value">${giveaway.nft.backdropName} <span class="rarity">${giveaway.nft.backdropRarity}</span></span>
-                            </div>
-                        </div>
-                        <a href="${giveaway.nft.link}" class="giveaway-nft-link-btn">
-                            <span style="margin-right: 8px;"></span> Link
-                        </a>
+                            <a href="${giveaway.nft.link}" class="giveaway-nft-link-btn">
+                                <span style="margin-right: 8px;"></span> Link
+                            </a>
+                        `}
                     </div>
 
                     <!-- Sağ tərəf — Məlumat -->
