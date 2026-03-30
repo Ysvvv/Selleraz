@@ -106,33 +106,33 @@ const SITE_DATA = {
     // active: true/false — giveaway-ın saytda görünüb-görünməməsini idarə edir
     // endDate: Geri sayımın bitəcəyi tarix (ISO 8601 formatı)
     giveaways: [
-        {
-            id: 1,
-            active: true,
-            title: "Giveaway",
-            description: "Gördüyünüz Vice Cream cəmi 1 ₼ ödəməklə qazanmaq şansı əldə edin. Yalnız 10 slot mövcuddur — tez olun!",
-            nft: {
-                name: "Vice Cream",
-                image: "https://i.postimg.cc/8P9gF4q3/IMG-5395.jpg",
-                link: "https://t.me/nft/ViceCream-13255",
-                modelName: "Gelato Rose",
-                modelRarity: "2%",
-                symbolName: "Hand of God",
-                symbolRarity: "0.4%",
-                backdropName: "Tactical Pine",
-                backdropRarity: "1.5%"
-            },
-            endDate: "2026-04-06T16:52:00+04:00",
-            totalSlots: 10,
-            filledSlots: 0,
-            conditions: [
-                "1 ₼ ödəniş etməlisiniz.",
-                "Yalnız 1 dəfə iştirak etmək hüququnuz var."
-            ],
-            price: "1 ₼",
-            participateLink: "https://t.me/onlykbye",
-            winnersCount: 1
-        }
+        // {
+        //     id: 1,
+        //     active: true,
+        //     title: "Giveaway",
+        //     description: "Gördüyünüz Vice Cream cəmi 1 ₼ ödəməklə qazanmaq şansı əldə edin. Yalnız 10 slot mövcuddur — tez olun!",
+        //     nft: {
+        //         name: "Vice Cream",
+        //         image: "https://i.postimg.cc/8P9gF4q3/IMG-5395.jpg",
+        //         link: "https://t.me/nft/ViceCream-13255",
+        //         modelName: "Gelato Rose",
+        //         modelRarity: "2%",
+        //         symbolName: "Hand of God",
+        //         symbolRarity: "0.4%",
+        //         backdropName: "Tactical Pine",
+        //         backdropRarity: "1.5%"
+        //     },
+        //     endDate: "2026-04-06T16:52:00+04:00",
+        //     totalSlots: 10,
+        //     filledSlots: 0,
+        //     conditions: [
+        //         "1 ₼ ödəniş etməlisiniz.",
+        //         "Yalnız 1 dəfə iştirak etmək hüququnuz var."
+        //     ],
+        //     price: "1 ₼",
+        //     participateLink: "https://t.me/onlykbye",
+        //     winnersCount: 1
+        // }
     ],
 
     // name | image | link | modelName | modelRarity | symbolName | symbolRarity | backdropName | backdropRarity | price
