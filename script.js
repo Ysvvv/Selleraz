@@ -19,15 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const infoGrid = document.getElementById('info-grid');
     if (infoGrid && SITE_DATA.info) {
         infoGrid.innerHTML = `
-            <div class="card" style="text-align: left;">
+            <div class="card" style="text-align: left; cursor: pointer;" onclick="switchTab('tab-premium', document.querySelector('.nav-links a[onclick*=\\'tab-premium\\']'))" title="Qiymətlər bölməsinə keçid">
                 <h3 class="card-title" style="color: var(--premium-color); margin-bottom: 15px;">${SITE_DATA.info.premiumTitle}</h3>
                 <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${SITE_DATA.info.premiumDesc}</p>
             </div>
-            <div class="card" style="text-align: left;">
+            <div class="card" style="text-align: left; cursor: pointer;" onclick="switchTab('tab-stars', document.querySelector('.nav-links a[onclick*=\\'tab-stars\\']'))" title="Qiymətlər bölməsinə keçid">
                 <h3 class="card-title" style="color: var(--star-color); margin-bottom: 15px;">${SITE_DATA.info.starsTitle}</h3>
                 <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${SITE_DATA.info.starsDesc}</p>
             </div>
-            <div class="card" style="text-align: left;">
+            <div class="card" style="text-align: left; cursor: pointer;" onclick="switchTab('tab-nfts', document.querySelector('.nav-links a[onclick*=\\'tab-nfts\\']'))" title="Qiymətlər bölməsinə keçid">
                 <h3 class="card-title" style="color: var(--accent-blue); margin-bottom: 15px;">${SITE_DATA.info.nftsTitle}</h3>
                 <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">${SITE_DATA.info.nftsDesc}</p>
             </div>
@@ -110,15 +110,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="nft-details">
                         <div class="nft-detail-row">
                             <span class="nft-detail-label">Model:</span>
-                            <span class="nft-detail-value" style="font-weight: 600;">${nft.modelName} <span style="color: var(--accent-blue); margin-left: 5px;">${nft.modelRarity}%</span></span>
+                            <span class="nft-detail-value" style="font-weight: 600;">${nft.modelName} <span style="color: var(--accent-blue); margin-left: 5px;">${nft.modelRarity}</span></span>
                         </div>
                         <div class="nft-detail-row">
                             <span class="nft-detail-label">Symbol:</span>
-                            <span class="nft-detail-value" style="font-weight: 600;">${nft.symbolName} <span style="color: var(--accent-blue); margin-left: 5px;">${nft.symbolRarity}%</span></span>
+                            <span class="nft-detail-value" style="font-weight: 600;">${nft.symbolName} <span style="color: var(--accent-blue); margin-left: 5px;">${nft.symbolRarity}</span></span>
                         </div>
                         <div class="nft-detail-row">
                             <span class="nft-detail-label">Backdrop:</span>
-                            <span class="nft-detail-value" style="font-weight: 600;">${nft.backdropName} <span style="color: var(--accent-blue); margin-left: 5px;">${nft.backdropRarity}%</span></span>
+                            <span class="nft-detail-value" style="font-weight: 600;">${nft.backdropName} <span style="color: var(--accent-blue); margin-left: 5px;">${nft.backdropRarity}</span></span>
                         </div>
                     </div>
                     
@@ -143,15 +143,26 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(text => {
                 const jsonStr = text.substring(47).slice(0, -2);
                 const json = JSON.parse(jsonStr);
-                const cols = json.table.cols.map(c => c ? c.label : '');
 
-                const fetchedNfts = json.table.rows.map(r => {
+                // Məcburi sütunları özümüz veririk çünki bəzən Google ilk sətri başlıq kimi tanımır
+                const expectedCols = ["name", "image", "link", "modelName", "modelRarity", "symbolName", "symbolRarity", "backdropName", "backdropRarity", "price"];
+
+                const fetchedNfts = [];
+                json.table.rows.forEach(r => {
+                    // Əgər ilk sətir sadəcə başlıqdırsa (name sözü varsa) onu atlayırıq
+                    if (r.c[0] && r.c[0].v === 'name') return;
+
                     const rowObj = {};
-                    cols.forEach((col, i) => {
-                        if (col) rowObj[col] = r.c[i] && r.c[i].v !== null ? r.c[i].v : "";
+                    expectedCols.forEach((col, i) => {
+                        rowObj[col] = r.c[i] && r.c[i].v !== null ? r.c[i].v : "";
                     });
-                    return rowObj;
+
+                    // Sətir boşdursa (və ya səhvdirsə) əlavə etmirik
+                    if (rowObj.name || rowObj.image) {
+                        fetchedNfts.push(rowObj);
+                    }
                 });
+
                 renderNFTs(fetchedNfts);
             })
             .catch(err => {
