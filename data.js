@@ -137,7 +137,7 @@ const SITE_DATA = {
             id: 2,
             active: true,
             title: "Giveaway",
-            description: "Şəkildə gördüyünüz hədiyyələri və yaxud 500 ulduzu cəmi 1 ₼ ödəməklə qazanmaq şansı əldə edin. Yalnız 15 slot mövcuddur — tez olun!",
+            description: "Şəkildə gördüyünüz hədiyyələrdən birini və yaxud 500 ulduzu cəmi 1 ₼ ödəməklə qazanmaq şansı əldə edin. Yalnız 15 slot mövcuddur — tez olun!",
             imageOnly: true, // Bu parametr true olanda yalnız böyük şəkil görünür
             largeImage: "https://api.telegram.org/file/bot8529948015:AAGyrBrgLZKlbOxBkTZv8tBvcRNTIzoYB3Y/photos/file_3.jpg", // İstədiyiniz böyük şəklin linki bura yazılır
             endDate: "2026-04-07T20:30:00+04:00",
