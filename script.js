@@ -107,26 +107,28 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="nft-image-wrapper">
                         <img src="${nft.image}" alt="${nft.name}" class="nft-image">
                         <div class="nft-name-overlay">${nft.name}</div>
-                        <div class="nft-details-tooltip">
+                    </div>
+                    <div class="nft-card-body">
+                        <div class="nft-details">
                             <div class="nft-detail-row">
                                 <span class="nft-detail-label">Model</span>
-                                <span class="nft-detail-value">${nft.modelName} <span style="color: var(--accent-blue);">${nft.modelRarity}</span></span>
+                                <span class="nft-detail-value">${nft.modelName} <span class="nft-rarity">${nft.modelRarity}</span></span>
                             </div>
                             <div class="nft-detail-row">
                                 <span class="nft-detail-label">Symbol</span>
-                                <span class="nft-detail-value">${nft.symbolName} <span style="color: var(--accent-blue);">${nft.symbolRarity}</span></span>
+                                <span class="nft-detail-value">${nft.symbolName} <span class="nft-rarity">${nft.symbolRarity}</span></span>
                             </div>
                             <div class="nft-detail-row">
                                 <span class="nft-detail-label">Backdrop</span>
-                                <span class="nft-detail-value">${nft.backdropName} <span style="color: var(--accent-blue);">${nft.backdropRarity}</span></span>
+                                <span class="nft-detail-value">${nft.backdropName} <span class="nft-rarity">${nft.backdropRarity}</span></span>
                             </div>
                         </div>
-                    </div>
-                    <div class="nft-card-footer">
-                        <span class="nft-card-price">${nft.price}</span>
-                        <div class="nft-card-actions">
-                            <a href="${SITE_DATA.links.buyLink}" class="nft-mini-btn primary">Al</a>
-                            <a href="${nft.link}" class="nft-mini-btn outline">Link</a>
+                        <div class="nft-card-footer">
+                            <span class="nft-card-price">${nft.price}</span>
+                            <div class="nft-card-actions">
+                                <a href="${SITE_DATA.links.buyLink}" class="nft-mini-btn primary">Al</a>
+                                <a href="${nft.link}" class="nft-mini-btn outline">Link</a>
+                            </div>
                         </div>
                     </div>
                 </div>
