@@ -104,30 +104,16 @@ document.addEventListener("DOMContentLoaded", () => {
         nftArray.forEach(nft => {
             nftsGrid.innerHTML += `
                 <div class="card nft-card">
+                    <div class="popular-badge" style="z-index: 10;">${nft.price}</div>
                     <div class="nft-image-wrapper">
                         <img src="${nft.image}" alt="${nft.name}" class="nft-image">
                         <div class="nft-name-overlay">${nft.name}</div>
                     </div>
                     <div class="nft-card-body">
-                        <div class="nft-details">
-                            <div class="nft-detail-row">
-                                <span class="nft-detail-label">Model</span>
-                                <span class="nft-detail-value">${nft.modelName} <span class="nft-rarity">${nft.modelRarity}</span></span>
-                            </div>
-                            <div class="nft-detail-row">
-                                <span class="nft-detail-label">Symbol</span>
-                                <span class="nft-detail-value">${nft.symbolName} <span class="nft-rarity">${nft.symbolRarity}</span></span>
-                            </div>
-                            <div class="nft-detail-row">
-                                <span class="nft-detail-label">Backdrop</span>
-                                <span class="nft-detail-value">${nft.backdropName} <span class="nft-rarity">${nft.backdropRarity}</span></span>
-                            </div>
-                        </div>
-                        <div class="nft-card-footer">
-                            <span class="nft-card-price">${nft.price}</span>
-                            <div class="nft-card-actions">
-                                <a href="${SITE_DATA.links.buyLink}" class="nft-mini-btn primary">Al</a>
-                                <a href="${nft.link}" class="nft-mini-btn outline">Link</a>
+                        <div class="nft-card-footer" style="padding-top: 10px;">
+                            <div class="nft-card-actions" style="width: 100%;">
+                                <a href="${SITE_DATA.links.buyLink}" class="nft-mini-btn primary" style="flex: 1; justify-content: center;">Al</a>
+                                <a href="${nft.link}" class="nft-mini-btn outline" style="flex: 1; justify-content: center;">Link</a>
                             </div>
                         </div>
                     </div>
@@ -259,20 +245,7 @@ function renderGiveaways() {
                         ` : `
                             <img src="${giveaway.nft.image}" alt="${giveaway.nft.name}" class="giveaway-nft-image" onerror="this.style.background='linear-gradient(135deg, rgba(0,136,204,0.2), rgba(163,125,252,0.2))'; this.style.display='flex';">
                             <div class="giveaway-nft-name">${giveaway.nft.name}</div>
-                            <div class="giveaway-nft-details">
-                                <div class="giveaway-nft-detail-row">
-                                    <span class="giveaway-nft-detail-label">Model</span>
-                                    <span class="giveaway-nft-detail-value">${giveaway.nft.modelName} <span class="rarity">${giveaway.nft.modelRarity}</span></span>
-                                </div>
-                                <div class="giveaway-nft-detail-row">
-                                    <span class="giveaway-nft-detail-label">Symbol</span>
-                                    <span class="giveaway-nft-detail-value">${giveaway.nft.symbolName} <span class="rarity">${giveaway.nft.symbolRarity}</span></span>
-                                </div>
-                                <div class="giveaway-nft-detail-row">
-                                    <span class="giveaway-nft-detail-label">Backdrop</span>
-                                    <span class="giveaway-nft-detail-value">${giveaway.nft.backdropName} <span class="rarity">${giveaway.nft.backdropRarity}</span></span>
-                                </div>
-                            </div>
+
                             <a href="${giveaway.nft.link}" class="giveaway-nft-link-btn">
                                 <span style="margin-right: 8px;"></span> Link
                             </a>
