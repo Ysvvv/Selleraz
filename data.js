@@ -66,7 +66,7 @@ const SITE_DATA = {
                 { price: "3 ₼", amount: "105 Stars" },
                 { price: "4 ₼", amount: "130 Stars" },
                 { price: "5 ₼", amount: "160 Stars" },
-                { price: "6 ₼", amount: "205 Stars" },
+                { price: "6 ₼", amount: "210 Stars" },
                 { price: "7 ₼", amount: "240 Stars" },
                 { price: "8 ₼", amount: "270 Stars" },
                 { price: "9 ₼", amount: "315 Stars" }
